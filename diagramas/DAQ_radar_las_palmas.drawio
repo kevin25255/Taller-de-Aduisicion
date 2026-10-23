@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DAQ - Radar Doppler La Asomadera 2" id="daq-radar">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1400" pageHeight="350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="box1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#2C2C2A;fontSize=13;arcSize=15;" value="Magnitud física&#xa;Velocidad del vehiculo (m/s)" vertex="1">
+          <mxGeometry height="80" width="200" x="310" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="box2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=13;arcSize=15;" value="Sensor / Transductor&#xa;Radar Doppler OPS243-A (24 GHz)" vertex="1">
+          <mxGeometry height="80" width="220" x="300" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="container" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#534AB7;dashed=1;verticalAlign=top;fontSize=15;fontStyle=1;fontColor=#26215C;spacingTop=10;" value="Proceso de digitalizacion" vertex="1">
+          <mxGeometry height="210" width="670" x="565" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sub1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#26215C;fontSize=12;arcSize=15;" value="Muestreo&lt;br&gt;20.000 muestras/s&amp;nbsp;&lt;div&gt;Ts = 0,05 ms&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="580" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sub2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#26215C;fontSize=12;arcSize=15;" value="Cuantificación&lt;br&gt;Resolución = 0,4356 km/h" vertex="1">
+          <mxGeometry height="60" width="180" x="1040" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sub3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#26215C;fontSize=12;arcSize=15;" value="Procesamiento: FFT → cálculo de velocidad" vertex="1">
+          <mxGeometry height="60" width="170" x="815" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="box4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontColor=#2C2C2A;fontSize=13;arcSize=15;" value="Dato digital: velocidad_kmh, direccion_movimiento, timestamp, id_sensor" vertex="1">
+          <mxGeometry height="80" width="220" x="1280" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="box1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#5F5E5A;" target="box2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="box2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#5F5E5A;" target="container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="sub1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#534AB7;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sub3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="sub2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#534AB7;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="e31-hMUyP2C-_V0XbjcD-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="container" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#5F5E5A;" target="box4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e31-hMUyP2C-_V0XbjcD-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEEDFE;strokeColor=#534AB7;fontColor=#26215C;fontSize=12;arcSize=15;" value="Codificación: mínimo 9 bits (512 niveles)" vertex="1">
+          <mxGeometry height="50" width="170" x="1045" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e31-hMUyP2C-_V0XbjcD-2" edge="1" parent="1" source="sub3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;elbow=vertical;startArrow=none;strokeColor=#534AB7;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sub2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="210" as="sourcePoint" />
+            <mxPoint x="1160" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
